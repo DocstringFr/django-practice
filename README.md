@@ -1,28 +1,36 @@
 # Exercices Django
 
-## Les modèles
+## Les requêtes
 
-L'objectif de cet exercice est de créer un modèle pour représenter les livres du site d'une bibliothèque en ligne.
+Pour cet exercice, vous disposez du modèle `Book` et du modèle `Author` définis dans [src/store/models.py](src/store/models.py).
 
-Votre modèle devra contenir les champs suivants :
-- `id` : Un identifiant unique qui servira de clé primaire (utilisez le module uuid)
-- `title` : Le titre du livre
-- `price` : Le prix du livre (nombre décimal)
-- `summary` : Le résumé du livre
-- `author` : L'auteur du livre (clé étrangère avec une relation Many to Many)
-- `category` : La catégorie (avec les choix suivants : **thriller**, **fantastique**, **romance**, **horreur**, **science-fiction**)
-- `stock` : La quantité en stock (avec une valeur par défaut de 0)
+La base de données contient plusieurs livres et auteurs déjà créés.
 
+Pour recréer les données de tests de la base de données, vous pouvez exécuter le script [src/store/create_test_data.py](src/store/create_test_data.py).
 
-Vous devrez également créer un modèle pour représenter les auteurs avec les champs pour :
-- `firstname` : Le prénom
-- `lastname` : Le nom de famille
-- `wikipedia` : Une URL vers la page wikipédia de l'auteur
+Dans cet exercice vous devez :
+
+### Créer des données
+- Créez le livre « Les Misérables » et son auteur associé (Victor Hugo).
+    - Le livre doit avoir un prix de 4,95€.
+    - Le livre est rangé dans la catégorie "Aventure".
+    - Pour le résumé vous pouvez mettre la valeur que vous souhaitez.
+    - Pour le stock, la bibliothèque dispose de 5 exemplaires.
+
+### Récupérer des données
+- Récupérer tous les livres dont le nombre d'exemplaires en stock est de 0.
+- Récupérer tous les livres dont le prix est strictement inférieur à 10€.
+- Récupérer tous les livres de Victor Hugo.
+- Récupérer le nom de l'auteur du livre « Les Trois Mousquetaires ».
+- Récupérer la valeur totale du stock de la bibliothèque (le prix de tous les livres * le nombre en stocks).
+- Récupérer le nombre total de livres dans la bibliothèque (le stock de tous les livres). 
+
+### Supprimer des données
+- Supprimez tous les livres de Victor Hugo.
+
+Vous pouvez utiliser le fichier [solution.py](src/store/solution.py) pour écrire les différentes requêtes demandées ci-dessus.
 
 # Solution
 
-Pour cet exercice, il fallait créer les modèles dans [src/store/models.py](src/store/models.py).
+Vous trouverez le code de la solution dans le fichier [solution.py](src/store/solution.py).
 
-On devait ensuite créer les fichiers de migrations avec la commande `python manage.py makemigrations`.
-
-Pour appliquer les migrations dans la base de données, il fallait ensuite utiliser la commande `python manage.py migrate`.
