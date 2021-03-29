@@ -18,3 +18,11 @@ Vous devrez également créer un modèle pour représenter les auteurs avec les 
 - `firstname` : Le prénom
 - `lastname` : Le nom de famille
 - `wikipedia` : Une URL vers la page wikipédia de l'auteur
+
+# Solution
+
+Pour cet exercice, il fallait créer les modèles dans [src/store/models.py](src/store/models.py).
+
+On devait ensuite créer les fichiers de migrations avec la commande `python manage.py makemigrations`.
+
+Pour appliquer les migrations dans la base de données, il fallait ensuite utiliser la commande `python manage.py migrate`.
