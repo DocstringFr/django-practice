@@ -1,5 +1,4 @@
 from django.db import models
-import uuid
 
 
 class Author(models.Model):
@@ -7,8 +6,12 @@ class Author(models.Model):
     lastname = models.CharField(max_length=150)
     wikipedia = models.URLField(blank=True)
 
+    def __str__(self):
+        return f"{self.firstname} {self.lastname}"
+
 
 class Book(models.Model):
+    ADVENTURE = "AV"
     THRILLER = "TR"
     FANTASY = "FS"
     ROMANCE = "RM"
@@ -16,6 +19,7 @@ class Book(models.Model):
     SCIENCE_FICTION = "SF"
 
     GENRES = [
+        (ADVENTURE, "Aventure"),
         (THRILLER, "Thriller"),
         (FANTASY, "Fantastique"),
         (ROMANCE, "Romance"),
@@ -23,10 +27,12 @@ class Book(models.Model):
         (SCIENCE_FICTION, "Science-fiction"),
     ]
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField(max_length=300, blank=False)
-    price = models.FloatField(blank=True)
+    title = models.CharField(max_length=300)
+    price = models.FloatField(blank=True, null=True)
     summary = models.TextField(blank=True)
-    author = models.ManyToManyField(Author, blank=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
     category = models.CharField(max_length=25, blank=True, choices=GENRES)
     stock = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
