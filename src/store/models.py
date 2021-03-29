@@ -9,6 +9,7 @@ class Author(models.Model):
 
 
 class Book(models.Model):
+    ADVENTURE = "AV"
     THRILLER = "TR"
     FANTASY = "FS"
     ROMANCE = "RM"
@@ -16,6 +17,7 @@ class Book(models.Model):
     SCIENCE_FICTION = "SF"
 
     GENRES = [
+        (ADVENTURE, "Aventure"),
         (THRILLER, "Thriller"),
         (FANTASY, "Fantastique"),
         (ROMANCE, "Romance"),
@@ -27,6 +29,9 @@ class Book(models.Model):
     title = models.CharField(max_length=300, blank=False)
     price = models.FloatField(blank=True)
     summary = models.TextField(blank=True)
-    author = models.ManyToManyField(Author, blank=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
     category = models.CharField(max_length=25, blank=True, choices=GENRES)
     stock = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
