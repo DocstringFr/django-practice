@@ -1,5 +1,3 @@
-import uuid
-
 from django.shortcuts import HttpResponse, get_object_or_404
 
 from store.models import Book
