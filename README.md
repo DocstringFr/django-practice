@@ -1,29 +1,17 @@
 # Exercices Django
 
-## Les requêtes
+## Les urls
 
-Pour cet exercice, vous disposez du modèle `Book` et du modèle `Author` définis dans [src/store/models.py](src/store/models.py).
+Le but de cet exercice est de rajouter deux chemins d'URLs pour pouvoir accéder aux vues [books](src/store/views.py) et [book](src/store/views.py).
 
-La base de données contient plusieurs livres et auteurs déjà créés.
 
-Pour recréer les données de tests de la base de données, vous pouvez exécuter le script [src/store/create_test_data.py](src/store/create_test_data.py).
+### Page d'accueil du site
+La page d'accueil du site (http://127.0.0.1:8000/) doit retourner une page qui affiche les titres de tous les livres de la base de données.
 
-Dans cet exercice vous devez :
+### Pages des livres
 
-### Créer des données
-- Créez le livre « Les Misérables » et son auteur associé (Victor Hugo).
-    - Le livre doit avoir un prix de 4,95€.
-    - Le livre est rangé dans la catégorie "Aventure".
-    - Pour le résumé vous pouvez mettre la valeur que vous souhaitez.
-    - Pour le stock, la bibliothèque dispose de 5 exemplaires.
+On doit également pouvoir accéder à la page d'un livre en particulier en indiquant sont `id` dans la base de données dans l'URL.
 
-### Récupérer des données
-- Récupérer tous les livres dont le nombre d'exemplaires en stock est de 0.
-- Récupérer tous les livres dont le prix est strictement inférieur à 10€.
-- Récupérer tous les livres de Victor Hugo.
-- Récupérer le nom de l'auteur du livre « Les Trois Mousquetaires ».
-- Récupérer la valeur totale du stock de la bibliothèque (le prix de tous les livres * le nombre en stocks).
-- Récupérer le nombre total de livres dans la bibliothèque (le stock de tous les livres). 
-
-### Supprimer des données
-- Supprimez tous les livres de Victor Hugo.
+Par exemple :   
+- http://127.0.0.1:8000/1/ doit afficher une page avec `Les Trois Mousquetaires`.  
+- http://127.0.0.1:8000/2/ doit afficher une page avec `Les Robots`.
