@@ -6,6 +6,9 @@ class Author(models.Model):
     lastname = models.CharField(max_length=150)
     wikipedia = models.URLField(blank=True)
 
+    def __str__(self):
+        return f"{self.firstname} {self.lastname}"
+
 
 class Book(models.Model):
     ADVENTURE = "AV"
