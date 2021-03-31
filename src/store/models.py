@@ -6,6 +6,9 @@ class Author(models.Model):
     lastname = models.CharField(max_length=150)
     wikipedia = models.URLField(blank=True)
 
+    def __str__(self):
+        return f"{self.firstname} {self.lastname}"
+
 
 class Book(models.Model):
     ADVENTURE = "AV"
@@ -24,8 +27,8 @@ class Book(models.Model):
         (SCIENCE_FICTION, "Science-fiction"),
     ]
 
-    title = models.CharField(max_length=300, blank=False)
-    price = models.FloatField(blank=True)
+    title = models.CharField(max_length=300)
+    price = models.FloatField(blank=True, null=True)
     summary = models.TextField(blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
     category = models.CharField(max_length=25, blank=True, choices=GENRES)
