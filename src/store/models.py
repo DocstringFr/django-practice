@@ -27,8 +27,8 @@ class Book(models.Model):
         (SCIENCE_FICTION, "Science-fiction"),
     ]
 
-    title = models.CharField(max_length=300, blank=False)
-    price = models.FloatField(blank=True)
+    title = models.CharField(max_length=300)
+    price = models.FloatField(blank=True, null=True)
     summary = models.TextField(blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
     category = models.CharField(max_length=25, blank=True, choices=GENRES)

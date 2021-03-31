@@ -8,4 +8,12 @@
     {% for book in books %}
         <h1><a href="{% url 'book' book_pk=book.pk %}">{{ book.title }}</a></h1>
     {% endfor %}
+
+    <h1>Ajouter un livre</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ajouter">
+    </form>
+
 {% endblock %}
