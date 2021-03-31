@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
+{% extends 'store/base.html' %}
+
+{% block title %}
     <title>La bibliothèque</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     {% for book in books %}
         <h1>{{ book.title }}</h1>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

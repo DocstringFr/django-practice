@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
+{% extends 'store/base.html' %}
+
+{% block title %}
     <title>{{ book.title }}</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <h1>{{ book.title|title }}</h1>
     <h5>{{ book.author.firstname }} {{ book.author.lastname }}</h5>
-    <p>
-        {{ book.summary }}
-    </p>
-</body>
-</html>
+    <p>{{ book.summary }}</p>
+{% endblock %}
